@@ -1,0 +1,25 @@
+{
+  "name": "excel_course",
+  "version": "1.0.0",
+  "description": "Pure JavaScript Advenced Course",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Skhmelyuk/excel_course.git"
+  },
+  "keywords": [
+    "webpack",
+    "js",
+    "javascript"
+  ],
+  "author": "Khmeluik <skhmelyuk1985@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Skhmelyuk/excel_course/issues"
+  },
+  "homepage": "https://github.com/Skhmelyuk/excel_course#readme",
+  "private": true
+}
