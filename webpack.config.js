@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -24,6 +25,33 @@ const jsLoaders = () => {
   return loaders
 }
 
+// const plugins = [
+//   new CleanWebpackPlugin(),
+//   new HtmlWebpackPlugin({
+//     template: 'index.html',
+//     minify: {
+//       removeComments: isProd,
+//       collapseWhitespace: isProd,
+//     },
+//   }),
+//   new CopyPlugin({
+//     patterns: [
+//       {
+//         from: path.resolve(__dirname, 'src/favicon.ico'),
+//         to: path.resolve(__dirname, 'dist'),
+//       },
+//     ],
+//   }),
+//   new MiniCssExtractPlugin({
+//     filename: filename('css'),
+//   }),
+//   new webpack.HotModuleReplacementPlugin(),
+// ]
+
+// if (isDev) {
+//   plugins.push(new webpack.HotModuleReplacementPlugin())
+// }
+
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   mode: 'development',
@@ -41,8 +69,12 @@ module.exports = {
   },
   devtool: isDev ? 'source-map' : false,
   devServer: {
-    port: 4200,
-    hot: isDev,
+    historyApiFallback: true,
+    contentBase: path.resolve(__dirname, 'dist'),
+    open: true,
+    compress: true,
+    hot: true,
+    port: 8080,
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -64,6 +96,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: filename('css'),
     }),
+    new webpack.HotModuleReplacementPlugin(),
   ],
   module: {
     rules: [
